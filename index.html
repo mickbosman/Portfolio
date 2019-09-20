@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel=stylesheet href="style.css" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mick Bosman">
+    <title>Portfolio Mick Bosman.</title>
+  </head>
+  <body>
+
+    <!--bovenste plaatje met foto en naam -->
+      <div class="welkomImg">
+        <img src="afbeeldingen/achtergrond.jpg">
+      </div>
+
+    <div class="welkom">
+      <img src="afbeeldingen/avatar.png" alt="Avatar">
+      <h1>Mick Bosman</h1>
+      <h1>Mediadeveloper</h1>
+    </div>
+
+    <!--menu-->
+    <div class="menu">
+      <img src="afbeeldingen/aboutMe.png">
+
+      <img src="afbeeldingen/check.png">
+
+      <img src="afbeeldingen/projects.png">
+
+      <img src="afbeeldingen/contact.png">
+    </div>
+
+    <!--about me-->
+    <div class="aboutMe">
+      <img src="afbeeldingen/aboutMe.png">
+    </div>
+    <div class="aboutMe_2">
+        <h2>Ik ben Mick Bosman. Ik ben 17 jaar oud en woon in Schoorl. Ik zit in mijn tweede jaar
+        van de opleiding Mediadeveloper op het Mediacollege in Amsterdam.</h2>
+     <br>
+        <p>Ik woon in Schoorl samen met mijn moeder en broertje. Mijn vader woont in Alkmaar.</p>
+        <p>Ik zat op het PCC Bergen en op het PCC Fabritius. Ik heb daar een stage gedaan bij een media bedrijf.</p>
+        <p>Ik heb hier voor het eerst iemand met code zien werken en vond dit heel interesant. Om die reden besloot dit</p>
+        <p>Als opleiding te kiezen. Aan het begin van de opleiding wilde ik Gamedeveloper worden maar ik koos toch</p>
+        <p>om voor Mediadeveloper te kiezen. Ik zit nu in het tweede jaar van de opleiding Mediadeveloper op het Mediacollege.</p>
+        <p>Ik werk op dit moment al ongeveer 2 jaar in de horica. Ik heb dus ervaring met werken in een bedrijf (geen ICT)</p>
+    </div>
+
+    <!--wat ik kan-->
+    <div class="skills">
+      <h1>Skills</h1>
+      <img src="afbeeldingen/check.png">
+
+      <h1>HTML</h1>
+      <div class="skillHTML">
+      	<span style="width: 70%"></span>
+      </div>
+
+      <h1>CSS</h1>
+      <div class="skillCSS">
+      	<span style="width: 60%"></span>
+      </div>
+
+      <h1>Javascript</h1>
+      <div class="skillJS">
+        <span style="width: 40%"></span>
+      </div>
+
+      <h1>Wordpress</h1>
+      <div class="skillWP">
+        <span style="width: 40%"></span>
+      </div>
+    </div>
+
+<!--projecten-->
+        <div class="projecten">
+          <img src="afbeeldingen/projects.png">
+    <br><br><br><br>
+
+<div class="wrapper">
+
+<!--project 1 (quiz)-->
+    <img class="modaal-knop" src="afbeeldingen/quiz.png">
+    <div class="cover modaalContent">
+        <a href="http://27074.hosts2.ma-cloud.nl/bewijzenmap/jaar%202/periode%201/proj/quiz/quizWelkom.html" target="_blank">
+      <img src="afbeeldingen/quiz.png"> </a>
+    <article>
+      <a href="http://27074.hosts2.ma-cloud.nl/bewijzenmap/jaar%202/periode%201/proj/quiz/quizWelkom.html" target="_blank">
+          <ul>
+            <li><h1>Muziek quiz uit de 80's</h1></li>   </a>
+            <li><p>Alleen gemaakt</p></li>
+            <li><p>Gemaakt in het begin van jaar 2</p></li>
+            </ul>
+    </article>
+  </div>
+
+<!--project 2 (memory)-->
+  <img class="modaal-knop" src="afbeeldingen/memorie.jpg">
+  <div class="cover modaalContent">
+      <a href="http://27074.hosts2.ma-cloud.nl/bewijzenmap/jaar%202/periode%201/proj/quiz/quizWelkom.html" target="_blank">
+    <img src="afbeeldingen/memorie.jpg"> </a>
+  <article>
+    <a href="http://27074.hosts2.ma-cloud.nl/bewijzenmap/jaar%202/periode%201/proj/quiz/quizWelkom.html" target="_blank">
+        <ul>
+          <li><h1>Memory</h1></li>   </a>
+          <li><p>Alleen gemaakt</p></li>
+          <li><p>Gemaakt in het midden van jaar 1</p></li>
+          </ul>
+  </article>
+</div>
+
+</div>
+
+<!-- modaal venster -->
+<div class="modaal-achtergrond"></div>
+
+  <script>
+
+  const modaalContent = document.querySelectorAll('.modaalContent');
+
+  for(let i=0; i<modaalContent.length; i++) {
+    let modaalNode = modaalContent[i];
+    modaalNode.parentNode.removeChild(modaalNode);  }
+
+    const modaalKnoppen = document.querySelectorAll('.modaal-knop');
+    const modaalKnoppenArray = [];
+
+    let modaalAchtergrond = document.createElement('div');
+    modaalAchtergrond.className = 'modaalAchtergrond';
+    let modaal = document.createElement('div');
+    modaal.className = 'modaal';
+    let sluitKnop = document.createElement('button');
+    sluitKnop.className = 'sluitKnop';
+    sluitKnop.innerHTML = '&#x00D7;';
+
+    const voegInhoudToe = (event) => {
+      //console.log(event.target);
+      const teller = modaalKnoppenArray.indexOf(event.target);
+      console.log(teller);
+      modaal.appendChild(sluitKnop);
+      modaal.appendChild(modaalContent[teller]);
+      modaalAchtergrond.appendChild(modaal);
+      document.body.appendChild(modaalAchtergrond);
+    }
+
+      const sluitModaal = () => {
+        modaal.innerHTML = '';
+        document.body.removeChild(modaalAchtergrond);
+        modaalAchtergrond.innerHTML ='';
+      }
+
+      sluitKnop.addEventListener('click', sluitModaal);
+
+      for(let i=0; i<modaalKnoppen.length; i++) {
+        modaalKnoppenArray.push(modaalKnoppen[i]);
+        modaalKnoppen[i].addEventListener('click', voegInhoudToe);
+      }
+
+  </script>
+
+</div>
+
+<!-- footer (contact)-->
+<div class="footer">
+  <p>
+</div>
+
+  </body>
+</html>
