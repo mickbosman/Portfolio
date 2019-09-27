@@ -1,3 +1,22 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#section1 {
+  height: 100vh;
+  background-color: white;
+}
+
+#section2 {
+  height: 100vh;
+  background-color: #F5F5F5;
+}
+
+#section3 {
+  height: 100vh;
+  background-color: white;
+}
+
 p {
   width: 200%;
   font-size: 120%;
@@ -217,7 +236,7 @@ height: 420px;
 }
 
 .projecten img {
-  width: 200px;
+  width: 300px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -233,7 +252,7 @@ height: 420px;
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 1.2em;
+  grid-gap: 8em;
   padding: 1.2em;
   justify-items: center;
 }
